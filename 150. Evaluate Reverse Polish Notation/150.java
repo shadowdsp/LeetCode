@@ -3,7 +3,6 @@ class Solution {
     // 逆波兰序列求值
     public int evalRPN(String[] tokens) {
         Stack<Integer> op = new Stack<>();
-        int n = tokens.length;
         for (String s : tokens) {
             if (Character.isDigit(s.charAt(0)) || s.length() > 1) {
                 op.push(Integer.parseInt(s));
