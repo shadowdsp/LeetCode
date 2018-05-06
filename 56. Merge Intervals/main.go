@@ -13,7 +13,7 @@
     for i := 0; i < n; i++ {
         st[i] = intervals[i].Start
         ed[i] = intervals[i].End
-    }
+    }	
     
     sort.Ints(st)
     sort.Ints(ed)
