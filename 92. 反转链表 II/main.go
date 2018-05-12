@@ -5,45 +5,28 @@
  *     Next *ListNode
  * }
  */
-func reverseBetween(head *ListNode, m int, n int) *ListNode {
-    cur := head
-    var pre, nxt, h1, h2 *ListNode
-    if cur == nil || n == m {
+ func reverseBetween(head *ListNode, m int, n int) *ListNode {
+    dummy := &ListNode{0, head}
+    if head == nil || m == n || head.Next == nil {
         return head
     }
-    cnt := 0
-    for {
+    pre, cur, nxt := dummy, head, head.Next
+    cnt := 1
+    for cnt < m && cur != nil {
         cnt++
-        if cnt >= m {
-            break
-        }
         pre = cur
         cur = cur.Next
     }
-    h1 = pre
-    if h1 != nil {
-        h2 = pre.Next
-    }
-    
-    for cnt <= n {
+    h := pre
+    hh := pre.Next
+    for cnt <= n && cur != nil {
         cnt++
         nxt = cur.Next
         cur.Next = pre
         pre = cur
         cur = nxt
     }
-    
-    if h1 != nil {
-        h1.Next = pre
-    } else {
-        head.Next = cur
-    }
-    if h2 != nil {
-        h2.Next = cur
-    }
-    
-    if m != 1 {
-        return head
-    }
-    return pre
+    h.Next = pre
+    hh.Next = cur
+    return dummy.Next
 }
