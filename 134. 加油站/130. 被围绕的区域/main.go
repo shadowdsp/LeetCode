@@ -13,22 +13,13 @@ func solve(board [][]byte)  {
         vis[i] = make([]bool, m)
     }
     for i := 0; i < n; i++ {
-        if string(board[i][0]) == "O" {
-            dfs(i, 0, vis, board, n, m)
-        }
-        
-        if string(board[i][m-1]) == "O" {
-            dfs(i, m - 1, vis, board, n, m)
+        for j := 0; j < m; j++ {
+            if (i == 0 || i == n - 1 || j == 0 || j == m - 1) && string(board[i][j]) == "O" {
+                dfs(i, j, vis, board, n, m)
+            }
         }
     }
-    for j := 0; j < m; j++ {
-        if string(board[0][j]) == "O" {
-            dfs(0, j, vis, board, n, m)
-        }
-        if string(board[n-1][j]) == "O" {
-            dfs(n - 1, j, vis, board, n, m)
-        }
-    }
+    
     for i := 0; i < n; i++ {
         for j := 0; j < m; j++ {
             if !vis[i][j] {
