@@ -1,4 +1,5 @@
 // IP还原
+// dfs，考虑前导零
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;

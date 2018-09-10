@@ -1,4 +1,5 @@
 // 抖音红人
+// 强连通分量缩点建新图
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 5e4 + 11;
