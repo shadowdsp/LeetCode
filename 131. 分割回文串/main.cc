@@ -1,6 +1,7 @@
+// dfs回溯+记忆化搜索
 // dp[i][j] 表示 s[i,j] 是否为回文串
 // 转移方程：dp[i][j] = s[i] == s[j] && dp[i+1][j-1]
-// dfs回溯+记忆化搜索
+
 class Solution {
 private:
     vector<vector<int>> dp;
